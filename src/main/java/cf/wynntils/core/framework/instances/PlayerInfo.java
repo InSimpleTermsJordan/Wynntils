@@ -3,13 +3,16 @@ package cf.wynntils.core.framework.instances;
 import cf.wynntils.core.events.custom.WynnClassChangeEvent;
 import cf.wynntils.core.framework.FrameworkManager;
 import cf.wynntils.core.framework.enums.ClassType;
+import cf.wynntils.core.framework.rendering.textures.AssetsTexture;
 import cf.wynntils.core.utils.Utils;
 import cf.wynntils.modules.core.CoreModule;
 import cf.wynntils.modules.core.config.CoreDBConfig;
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.ResourceLocation;
 
 import java.text.DecimalFormat;
 import java.util.HashSet;
+import java.util.TreeMap;
 import java.util.UUID;
 
 /**
@@ -36,7 +39,7 @@ public class PlayerInfo {
     private String specialActionBar = null;
 
     private HashSet<String> friendList = new HashSet<>();
-    private HashSet<String> partyList = new HashSet<>();
+    private TreeMap<String, ResourceLocation> partyList = new TreeMap<>();
     private HashSet<String> guildList = new HashSet<>();
 
     int lastLevel = 0;
@@ -84,7 +87,7 @@ public class PlayerInfo {
         return friendList;
     }
 
-    public HashSet<String> getPartyList() { return partyList; }
+    public TreeMap<String, ResourceLocation> getPartyList() { return partyList; }
 
     public HashSet<String> getGuildList() {
         return guildList;
@@ -94,7 +97,7 @@ public class PlayerInfo {
         friendList = value;
     }
 
-    public void setPartyList(HashSet<String> value) { partyList = value; }
+    public void setPartyList(TreeMap<String, ResourceLocation> value) { partyList = value; }
 
     public void setGuildList(HashSet<String> value) {
         guildList = value;

@@ -25,7 +25,7 @@ public class PartyConfig extends SettingsClass {
     public boolean characterBar = true;
 
     @Setting(displayName = "Party member health bars (Overlay)", description = "Should there be a party overlay displayed?")
-    public boolean partyOverlay = true; //TODO create actual overlay
+    public boolean partyOverlay = true;
 
     @Setting(displayName = "Update rate", description = "How fast should the health bar overlay update? (per ticks; 0= instant)")
     @Setting.Limitations.IntLimit(min = 0, max = 10)
@@ -35,8 +35,8 @@ public class PartyConfig extends SettingsClass {
     @Setting.Limitations.IntLimit(min = 1, max = 10)
     public int shownAmnt = 4;
 
-    @Setting(displayName = "Overlay Health Bar Texture", description = "What texture should be used for the health bar?")
-    public HealthTextures healthTexture = HealthTextures.c;
+    /*@Setting(displayName = "Overlay Health Bar Texture", description = "What texture should be used for the health bar?")
+    public HealthTextures healthTexture = HealthTextures.c;*/ //TODO add textures
 
     @Setting(displayName = "Text Shadow", description = "The HUD text shadow type")
     public SmartFontRenderer.TextShadow textShadow = SmartFontRenderer.TextShadow.NORMAL;

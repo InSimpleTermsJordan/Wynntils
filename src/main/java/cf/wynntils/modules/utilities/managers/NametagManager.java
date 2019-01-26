@@ -112,7 +112,7 @@ public class NametagManager {
             int i = "deadmau5".equals(str) ? -10 : 0;
             if (!str.isEmpty() && !str.contains("\u0001")) {
                 if (entityIn instanceof EntityPlayer) {
-                    if(PlayerInfo.getPlayerInfo().getPartyList().contains(entityIn.getName())) {
+                    if(PlayerInfo.getPlayerInfo().getPartyList().containsKey(entityIn.getName())) {
                         if (PartyConfig.INSTANCE.characterBar) {
                             drawNameplate(renderManager.getFontRenderer(), getPartyMemHP((EntityPlayer) entityIn), (float) x, (float) y + f2, (float) z, i, f, f1, flag1, flag, r, g, b, 0.7f);
                             i -= 10;
@@ -242,7 +242,7 @@ public class NametagManager {
     private static String getPartyMemHP(EntityPlayer entityPlayer) {
         int health = (int) (0.3f + (entityPlayer.getHealth() / entityPlayer.getMaxHealth()) * 15 ); //0.3f for better experience rounding off near full hp
         String healthBar = "§4[§c|||||||||||||||§4]";
-        healthBar = healthBar.substring(0, 5 + health) + "§8" + healthBar.substring(5 + health);
+        healthBar = healthBar.substring(0, 5 + Math.min(health, 15)) + "§8" + healthBar.substring(5 + Math.min(health, 15));
         if (health < 8) { healthBar = healthBar.replace('c', '6'); }
         return healthBar;
     }
