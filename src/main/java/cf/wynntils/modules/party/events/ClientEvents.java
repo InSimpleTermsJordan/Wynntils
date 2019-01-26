@@ -33,7 +33,7 @@ public class ClientEvents implements Listener {
                 ModCore.mc().getConnection().getPlayerInfoMap().forEach(networkPlayerInfo -> {
                     String playerName = ModCore.mc().ingameGUI.getTabList().getPlayerName(networkPlayerInfo);
                     if (!playerName.equals("")) {
-                        if (playerName.matches("§(c|e)[A-Za-z0-9_ ]+§r") /*&& !PlayerInfo.getPlayerInfo().getName().equals(Utils.stripColor(playerName))*/) {
+                        if (playerName.matches("§(c|e)[A-Za-z0-9_ ]+§r") && !PlayerInfo.getPlayerInfo().getName().equals(Utils.stripColor(playerName))) {
                             try {
                                 ResourceLocation rl = new ResourceLocation("wynntils:helm/" + playerName);
                                 TextureManager textureManager = Minecraft.getMinecraft().getTextureManager();
